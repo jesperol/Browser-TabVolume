@@ -14,20 +14,22 @@
     "128": "icons/128.png"
   },
   
-	"permissions": [
+  "permissions": [
     "activeTab",
     "storage",
     "tabCapture"
   ],
   
-	"background": {
-		"scripts": [
+  "background": {
+    "scripts": [
       "background.js"
     ]
   },
-	"browser_action": {
-		"default_popup": "popup/index.html"
+
+  "browser_action": {
+    "default_popup": "popup/index.html"
   },
+
   "options_ui": {
     "page": "options/index.html",
     "browser_style": true,

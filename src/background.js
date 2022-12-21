@@ -3,6 +3,16 @@ let platform = chrome ? chrome : browser;
 
 // Per tab data.
 const tabs = [];
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	chrome.browserAction.setIcon({
+		path: {
+			"16": "icons/dark/16.png",
+			"32": "icons/dark/32.png",
+			"64": "icons/dark/64.png",
+			"128": "icons/dark/128.png"
+		}
+	});
+}
 
 // On runtime message received.
 platform.runtime.onMessage.addListener(function(request, sender, sendResponse) {

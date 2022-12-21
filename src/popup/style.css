@@ -10,6 +10,24 @@ body {
 	display: inline-block;
 	width: 288px;
 }
+
+@media (prefers-color-scheme: dark) {
+  /* simple but badly named... */
+  body { 
+	--white: #202124;
+	--grey-lighter: #5f6368;
+	--grey-light: #80868b;
+	--grey: #babcbe;
+	--grey-dark: #dee1e6;
+	--grey-darker: #f1f3f4;
+	--black: #ffffff;
+  }
+}
+
+body {
+	background-color: var(--white);
+}
+
 body > * {
 	margin: 0 auto;
 	
@@ -40,6 +58,7 @@ form > input[type=number] {
 	font-weight: bold;
 	
 	border: solid 1px var(--grey-light);
+	background-color: var(--grey-lighter);
 	border-radius: 8px;
 }
 form > input[type=number]:focus {
