@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				// Store value level.
 				let items = {};
 				items[domain] = this.value;
-				platform.storage.sync.set(items);
+				platform.storage.local.set(items);
 			});
 		}
 		// Add button click event.
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 		
 		// Get volume level from storage.
-		platform.storage.sync.get(domain, function(items) {
+		platform.storage.local.get(domain, function(items) {
 			// Apply volume level.
 			let volume = items[domain];
 			if (volume) {
