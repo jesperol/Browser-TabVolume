@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		// Get input fields.
 		let input = document.getElementById('interface').children;
-		// Add input change event.
+		// Add input change event. The 'input' event would allow us to update number field whilst dragging
 		for (let i = 0; i < input.length; i++) {
 			input[i].addEventListener('change', function() {
 				// Set value to other input field.

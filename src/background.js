@@ -3,6 +3,8 @@ let platform = chrome ? chrome : browser;
 
 // Per tab data.
 const tabs = [];
+
+// change extension icon if dark mode preferred
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	chrome.browserAction.setIcon({
 		path: {

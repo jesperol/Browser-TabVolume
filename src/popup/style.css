@@ -61,6 +61,7 @@ form > input[type=number] {
 	background-color: var(--grey-lighter);
 	border-radius: 8px;
 }
+
 form > input[type=number]:focus {
 	border: solid 1px transparent;
 }
@@ -77,12 +78,15 @@ form > input[type=range] {
 	
 	transition: all 0.1s ease-in-out;
 }
+
 form > input[type=range]:focus {
 	outline: 0;
 }
+
 form > input[type=range]:hover {
 	background-color: var(--grey-light);
 }
+
 form input[type=range]::-webkit-slider-thumb {
 	height: 16px;
 	width: 16px;
@@ -95,6 +99,7 @@ form input[type=range]::-webkit-slider-thumb {
 	
 	transition: all 0.1s ease-in-out;
 }
+
 form input[type=range]::-webkit-slider-thumb:hover {
 	background-color: var(--grey-darker);
 }
@@ -117,9 +122,11 @@ button {
 	
 	transition: all 0.2s ease-in-out;
 }
+
 button:hover {
 	background-color: var(--grey-lighter);
 }
+
 button:focus {
 	outline: 0;
 }
