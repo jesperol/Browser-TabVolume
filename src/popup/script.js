@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Add button click event.
 		document.getElementById('stop').addEventListener('click', function() {
 			// Set volume to default 100 to disable the system.
-			platform.runtime.sendMessage( {id: tabs[0].id, volume: 100 });
+			platform.runtime.sendMessage({ id: tabs[0].id, volume: 100 });
+			// Remove value level
+			platform.storage.local.remove(domain);
 			// Exit the window.
 			window.close();
 		});
