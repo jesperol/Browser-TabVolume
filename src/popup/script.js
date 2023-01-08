@@ -4,9 +4,9 @@ let platform = chrome ? chrome : browser;
 // Setup extension.
 document.addEventListener('DOMContentLoaded', function() {
 	platform.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		// Get domain.
-		let domain = tabs[0].url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
-		
+		let tab = tabs[0]
+	    let tabIdStr = tab.id.toString();	
+
 		// Get input fields.
 		let input = document.getElementById('interface').children;
 		// Add input change event. The 'input' event would allow us to update number field whilst dragging
@@ -21,29 +21,27 @@ document.addEventListener('DOMContentLoaded', function() {
 				}
 				
 				// Set volume level of tab.
-				platform.runtime.sendMessage({ id: tabs[0].id, volume: this.value });
+				platform.runtime.sendMessage({ id: tab.id, volume: this.value });
 				// Store value level.
-				let items = {};
-				items[domain] = this.value;
-				platform.storage.local.set(items);
+				platform.storage.local.set({ [tabIdStr]: this.value });
 			});
 		}
 		// Add button click event.
 		document.getElementById('stop').addEventListener('click', function() {
 			// Set volume to default 100 to disable the system.
-			platform.runtime.sendMessage({ id: tabs[0].id, volume: 100 });
+			platform.runtime.sendMessage({ id: tab.id, volume: 100 });
 			// Remove value level
-			platform.storage.local.remove(domain);
+			platform.storage.local.remove(tabIdStr);
 			// Exit the window.
 			window.close();
 		});
 		
 		// Get volume level from storage.
-		platform.storage.local.get(domain, function(items) {
+		platform.storage.local.get(tabIdStr, function(items) {
 			// Apply volume level.
-			let volume = items[domain];
+			let volume = items[tabIdStr];
 			if (volume) {
-				platform.runtime.sendMessage({ id: tabs[0].id, volume: volume });
+				platform.runtime.sendMessage({ id: tab.id, volume: volume });
 			}
 			// If no volume level given set default of 100.
 			else {
