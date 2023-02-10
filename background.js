@@ -3,6 +3,22 @@ let platform = chrome ? chrome : browser;
 
 const tabs = [];
 
+// v3 should support someting like this...
+// "theme_icons": [{
+//   "light": "icons/16.png",
+//   "dark": "icons/dark/16.png",
+//   "size": 16
+//},{
+//   "light": "icons/48.png",
+//   "dark": "icons/dark/48.png",
+//   "size": 48
+//},{
+//   "light": "icons/128.png",
+//   "dark": "icons/dark/128.png",
+//   "size": 128
+//}],
+  
+
 // change extension icon if dark mode preferred
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	chrome.browserAction.setIcon({
