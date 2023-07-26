@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+### Changed
+- Moved to manifest v3 using background documents
+
 ## 1.1.0 (2018-09-29)
 ### Added
 - Preemptively added support for `browser` namespace for when other browsers implement the tabCapture API.
