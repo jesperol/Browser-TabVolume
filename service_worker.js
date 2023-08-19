@@ -1,5 +1,5 @@
 async function createOffscreenDocument() {
-    chrome.action.setBadgeText({ text: '3' });
+    // chrome.action.setBadgeText({ text: '3' });
     if (!await chrome.offscreen.hasDocument()) {
         return await chrome.offscreen.createDocument({ 
             url: chrome.runtime.getURL("background.html"),
