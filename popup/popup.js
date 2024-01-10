@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Make scroll wheel over number inc/decr number
         numberVolume.addEventListener('wheel', function(e) {
-            this.valueAsNumber += e.deltaY < 0 ? -10 : 10;
+            this.valueAsNumber += e.deltaY > 0 ? -10 : 10;
             e.preventDefault();
             e.stopPropagation();
             this.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Make scroll wheel move slider
         rangeVolume.addEventListener('wheel', function(e) {
-            this.valueAsNumber += e.deltaY < 0 ? -10 : 10;
+            this.valueAsNumber += e.deltaY > 0 ? -10 : 10;
             e.preventDefault();
             e.stopPropagation();
             this.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
