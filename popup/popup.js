@@ -44,6 +44,24 @@ document.addEventListener('DOMContentLoaded', function() {
             rangeVolume.value = this.value;
             setVolume(this.value);
         });
+
+        // Make scroll wheel over number inc/decr number
+        numberVolume.addEventListener('wheel', function(e) {
+            this.valueAsNumber += e.deltaY < 0 ? -10 : 10;
+            e.preventDefault();
+            e.stopPropagation();
+            this.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
+        });
+        
+
+        // Make scroll wheel move slider
+        rangeVolume.addEventListener('wheel', function(e) {
+            this.valueAsNumber += e.deltaY < 0 ? -10 : 10;
+            e.preventDefault();
+            e.stopPropagation();
+            this.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
+        });
+        
         
         // Create the offscreen document if not exists
         chrome.runtime.sendMessage({ createOffscreenDocument: 1 });
